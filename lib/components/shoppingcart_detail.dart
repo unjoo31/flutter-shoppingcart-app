@@ -122,14 +122,14 @@ class ShoppingCartDetail extends StatelessWidget {
           showCupertinoDialog(
             context: context,
             builder: (context) => CupertinoAlertDialog(
-              title: Text("장바구니에 담으시겠습니다?"),
+              title: Text("장바구니에 담으시겠습니까?"),
               actions: [
                 CupertinoDialogAction(
                   child: Text("확인", style: TextStyle(color: Colors.blue)),
                   onPressed: () {
                     Navigator.pop(context);
                   },
-                )
+                ),
               ],
             ),
           );
