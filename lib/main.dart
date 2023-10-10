@@ -19,15 +19,37 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class ShoppingCartPage extends StatelessWidget {
+class ShoppingCartPage extends StatefulWidget {
+  @override
+  _ShoppingCartPageState createState() => _ShoppingCartPageState();
+}
+
+class _ShoppingCartPageState extends State<ShoppingCartPage> {
+  void _showShoppingCartDetail() {
+    showModalBottomSheet(
+      context: context,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(30),
+          topRight: Radius.circular(30),
+        ),
+      ),
+      builder: (BuildContext context) {
+        return ShoppingCartDetail();
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: _buildShoppingCartAppBar(),
       body: Column(
         children: [
-          ShoppingCartHeader(),
-          ShoppingCartDetail(),
+          GestureDetector(
+            onTap: _showShoppingCartDetail,
+            child: ShoppingCartHeader(),
+          ),
         ],
       ),
     );
